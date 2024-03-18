@@ -43,11 +43,11 @@ pve-1
         dns/bind
         .sql/mariadb
         .psql/postgres
-    
+
     win11-desktop
     ubuntu-desktop
 
-.pve-1
+.pve-2
     HA for critical service
     Kubernetes? Or should k8s be separate?
 
