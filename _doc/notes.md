@@ -27,6 +27,9 @@ pve-1
         dashboard/homepage
         minecraft
         playback/jellyfin
+
+    dmz-docker1
+        blog
         media_services -- Move these to a separate VM?
             .vpn/gluetun
             downloads/qbt
@@ -40,6 +43,7 @@ pve-1
         dns/bind
         .sql/mariadb
         .psql/postgres
+    
     win11-desktop
     ubuntu-desktop
 
