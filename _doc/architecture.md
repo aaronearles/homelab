@@ -19,10 +19,10 @@ Internal container registry?
 ```
 hostname    model       role
 
-dns         rPi3        DNS/Master
-util        rPi5        DNS/Slave, GitHub Runner, Ansible, Terraform, Gatus
-pve         TMM         Proxmox Primary
-nas         DS215j      Primary Storage/Backups, Future Backups
+dns1         rPi3        DNS/Master
+util1        rPi5        DNS/Slave, GitHub Runner, Ansible, Terraform, Gatus
+pve1         TMM         Proxmox Primary
+nas1         DS215j      Primary Storage/Backups, Future Backups
 ```
 
 ### Current VM List
@@ -39,7 +39,7 @@ util1
         ansible
         terraform
 
-pve
+pve1
     util2 (lxc)
         internal-ca
         nmap, misc tools

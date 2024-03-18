@@ -8,3 +8,7 @@ earles.io	IN SOA	ns.earles.io. earles.io. (
 				3600       ; minimum (1 hour)
 				)
 			NS	ns.earles.io.
+
+; -- add dns records below
+
+test			IN	A	172.20.10.1
