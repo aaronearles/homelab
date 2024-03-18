@@ -1,6 +1,6 @@
 $ORIGIN earles.internal
 $TTL 86400	; 1 day
-@				IN		SOA		ns.earles.internal. admin.earles.internal. (
+@				IN		SOA		ns1.earles.internal. admin.earles.internal. (
 				20240318 ; serial
 				3600       ; refresh (1 hour)
 				3600       ; retry (1 hour)
