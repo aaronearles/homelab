@@ -1,6 +1,6 @@
 $ORIGIN .
 $TTL 86400	; 1 day
-@				IN		SOA		ns.earles.internal. earles.internal. (
+@				IN		SOA		ns.earles.internal. admin.earles.internal. (
 				20240318 ; serial
 				3600       ; refresh (1 hour)
 				3600       ; retry (1 hour)
@@ -8,11 +8,9 @@ $TTL 86400	; 1 day
 				3600       ; minimum (1 hour)
 				)
 
-				IN		NS	ns.earles.internal.
+				IN		NS	ns1.earles.internal.
+				IN		NS	ns2.earles.internal.
 
 ns1				IN		A	172.20.100.3
 ns2				IN		A	172.20.100.4
-
-; -- add dns records below
-
 test			IN		A	172.20.10.1
