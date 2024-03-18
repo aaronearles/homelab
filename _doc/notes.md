@@ -5,7 +5,22 @@ Considering consolidating services to a set of Prod and Lab docker hosts and con
 
 Does this model scale to multiple nodes and support future K8S migration?
 
+### Physical Machines
 ```
+hostname    model       role
+
+dns1        rPi3        DNS/Master
+dns2        rPi3        DNS/Slave
+k8s1        rPi5        Kubernetes A
+k8s2        rPi5        Kubernetes B
+k8s3        rPi5        Kubernetes C
+pve1        TMM         Proxmox Primary
+pve2        TMM         Proxmox Secondary
+nas1        DS215j      Primary Storage/Backups, Future Backups
+nas2        TBD         Future Primary Storage
+```
+
+### Detailed VM/Container List
 rPi3, rPi5
     Should config_mgmt, and/or monitoring run external to PVE? What about DNS?
 
