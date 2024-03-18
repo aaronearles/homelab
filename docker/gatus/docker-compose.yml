@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+  gatus:
+    container_name: gatus
+    image: twinproduction/gatus:latest
+    ports:
+      - 8080:8080
+    volumes:
+      - ./config:/config/
+      - data:/data/
+    environment:
+      - GATUS_CONFIG_PATH=/config/
+volumes:
+  data:
