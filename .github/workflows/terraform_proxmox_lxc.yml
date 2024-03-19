@@ -31,8 +31,8 @@ jobs:
     defaults:
       run:
         working-directory: ${{ vars.tf_actions_working_dir }}
-    permissions:
-      pull-requests: write
+    # permissions:
+    #   pull-requests: write
     steps:
     - uses: actions/checkout@v3
     - uses: hashicorp/setup-terraform@v3
