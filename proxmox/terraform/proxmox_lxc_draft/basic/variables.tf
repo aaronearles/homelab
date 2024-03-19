@@ -61,5 +61,5 @@ variable "lxc_hostname_pfx" {
 
 variable "lxc_password" {
   type = string
-  description = "Password of container."
+  description = "Password for container."
 }
