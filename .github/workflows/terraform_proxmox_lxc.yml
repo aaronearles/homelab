@@ -13,6 +13,8 @@ on:
       paths:
         - 'proxmox/terraform/proxmox_lxc_draft/basic/**'
       branches: [ "main" ]
+    # Allows you to run this workflow manually from the Actions tab
+    workflow_dispatch:
  
 jobs:
   terraform:
