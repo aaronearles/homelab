@@ -3,7 +3,7 @@
 ### NEEDS REVIEW:
 ### How will internal DNS server work cross-vlan with unifi in play?
 
-UDM intercepts all DNS requests. Need to determine how to configure UDM to ignore local DNS requests, assign local DNS server (172.20.100.3, .4) in DHCP, and continue to act as a forwarder for internet requests.
+UDM intercepts all DNS requests. !!! Disabling ad-blocking prevents this behavior !!! But also stops performing local lookups? couldn't resolve vessel.earles.internal w/ adblock disabled !!! Need to determine how to configure UDM to ignore local DNS requests, assign local DNS server (172.20.100.3, .4) in DHCP, and continue to act as a forwarder for internet requests.
 
 [1] Settings -> Networks -> Default -> DHCP Service Management -> Show Options -> DNS Server: by default, "Auto" is checked. If I uncheck it, I can enter up to 4 DNS servers.
 
