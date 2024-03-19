@@ -1,5 +1,18 @@
 # Re-architecture Planning
 
+### NEEDS REVIEW:
+### How will internal DNS server work cross-vlan with unifi in play?
+
+UDM intercepts all DNS requests. Need to determine how to configure UDM to ignore local DNS requests, assign local DNS server (172.20.100.3, .4) in DHCP, and continue to act as a forwarder for internet requests.
+
+[1] Settings -> Networks -> Default -> DHCP Service Management -> Show Options -> DNS Server: by default, "Auto" is checked. If I uncheck it, I can enter up to 4 DNS servers.
+
+[2] Internet -> Primary (WAN 1) -> DNS Server: by default "Auto" is checked. If I uncheck "Auto", I can enter up to 2 DNS servers.
+
+Continue to use Unifi for DNS and add forwarder for earles.internal and earles.io that points to Bind?
+
+---
+
 ### Overview
 Considering consolidating services to a set of Prod and Lab docker hosts and consolidating persistent CT/VMs in Proxmox to very few.
 
@@ -11,7 +24,7 @@ Create a docker server template / configure as code for repeatable environments 
 
 Try to standardize on single OS, Ubuntu vs Debian. Maybe all primary/Docker hosts are Ubuntu and "appliances" are Debian?
 
-Internal container registry?
+Internal container registry
 
 ## Current State
 
@@ -19,19 +32,14 @@ Internal container registry?
 ```
 hostname    model       role
 
-dns1         rPi3        DNS/Master
-util1        rPi5        DNS/Slave, GitHub Runner, Ansible, Terraform, Gatus
-pve1         TMM         Proxmox Primary
-nas1         DS215j      Primary Storage/Backups, Future Backups
+util        rPi5        Docker: DNS/Slave, Rocket, Ansible, Tf, Gatus
+pve         TMM         Proxmox Primary
+nas         DS215j      Primary Storage/Backups, Future Backups
 ```
 
 ### Current VM List
 ```
-dns1
-    bare-metal:
-        bind
-        maybe gatus
-util1
+util
     bare-metal:(?)
         bind
         rocket (gh actions)
@@ -39,7 +47,7 @@ util1
         ansible
         terraform
 
-pve1
+pve
     util2 (lxc)
         internal-ca
         nmap, misc tools
