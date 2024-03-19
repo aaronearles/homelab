@@ -1,20 +1,20 @@
 
 variable "target_node" {
-    type = string
-    description = "Required The name of the Proxmox Node on which to place the VM."
-    default = "pve"
+  type        = string
+  description = "Required The name of the Proxmox Node on which to place the VM."
+  default     = "pve"
 }
 
 variable "lxc_count" {
-  type = string 
+  type        = string
   description = "Number of containers to deploy"
-  default = 1
+  default     = 1
 }
 
 variable "id_start" {
-  type = string 
+  type        = string
   description = "VM/CT ID Number to start from"
-  default = 400
+  default     = 400
 }
 
 # variable "lxc_list" {
@@ -24,9 +24,9 @@ variable "id_start" {
 # }
 
 variable "ostemplate" {
-  type = string
+  type        = string
   description = "Path to CT Template to clone" #"local:vztmpl/ubuntu-20.04-standard_20.04-1_amd64.tar.gz"
-  default = "local:vztmpl/debian-12-standard_12.0-1_amd64.tar.zst"
+  default     = "local:vztmpl/debian-12-standard_12.0-1_amd64.tar.zst"
 }
 
 # variable "clone_source" {
@@ -36,30 +36,30 @@ variable "ostemplate" {
 
 
 variable "lxc_disksize" {
-  type = string
+  type        = string
   description = "Disk size for container. Such as '8G'"
-  default = "8G"
+  default     = "8G"
 }
 
 variable "lxc_cores" {
-  type = string
+  type        = string
   description = "Number of CPU cores to allocate to container. Such as '1'"
-  default = 1
+  default     = 1
 }
 
 variable "lxc_memsize" {
-  type = string
+  type        = string
   description = "Memory size for container. Such as '512`"
-  default = "512"
+  default     = "512"
 }
 
 variable "lxc_hostname_pfx" {
-  type = string
+  type        = string
   description = "Hostname prefix of container(s)."
-  default = "lxc_clone"
+  default     = "lxc_clone"
 }
 
 variable "lxc_password" {
-  type = string
+  type        = string
   description = "Password for container."
 }
