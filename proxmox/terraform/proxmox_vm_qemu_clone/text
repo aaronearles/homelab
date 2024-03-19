@@ -1,0 +1,23 @@
+sudo qm create 9003 --name "debian-12-cloudinit-template" --memory 2048 --cores 2 --net0 virtio,bridge=vmbr0
+sudo qm importdisk 9003 debian-12-generic-amd64.qcow2 local-lvm
+sudo qm set 9003 --scsihw virtio-scsi-pci --scsi0 local-lvm:vm-9003-disk-0,ssd=1
+sudo qm set 9003 --boot c --bootdisk scsi0
+sudo qm set 9003 --ide2 local-lvm:cloudinit
+sudo qm set 9003 --serial0 socket --vga serial0
+sudo qm set 9003 --agent enabled=1
+
+sudo qm template 9003
+
+
+
+
+
+
+# Create Role
+sudo pveum role add terraform_role -privs "Datastore.AllocateSpace Datastore.Audit Pool.Allocate Sys.Audit Sys.Console Sys.Modify VM.Allocate VM.Audit VM.Clone VM.Config.CDROM VM.Config.Cloudinit VM.Config.CPU VM.Config.Disk VM.Config.HWType VM.Config.Memory VM.Config.Network VM.Config.Options VM.Migrate VM.Monitor VM.PowerMgmt"
+
+# Create User
+sudo pveum user add terraform@pve --password Converg3!
+
+# Map Role to User
+sudo pveum aclmod / -user terraform@pve -role terraform_role
