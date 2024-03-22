@@ -8,13 +8,13 @@ variable "target_node" {
 variable "lxc_count" {
   type        = string
   description = "Number of containers to deploy"
-  default     = 1
+  # default     = 1
 }
 
 variable "id_start" {
   type        = string
   description = "VM/CT ID Number to start from"
-  default     = 400
+  # default     = 400
 }
 
 # variable "lxc_list" {

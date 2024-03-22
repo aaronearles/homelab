@@ -26,6 +26,10 @@ terraform {
       # version = "3.0.1-rc1"
     }
   }
+
+  backend "local" {
+    path = "/mnt/nfs/code/terraform_state/proxmox_400.tfstate"
+  }
 }
 
 provider "proxmox" {
