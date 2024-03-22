@@ -1,0 +1,4 @@
+ansible-inventory -i inventory.ini --list
+ansible hosts -m ping -i inventory.ini
+ansible-playbook -i inventory.ini playbook/apt-setup.yml
+ansible-playbook -i inventory.ini playbook/apt-setup.yml -u root
