@@ -35,9 +35,9 @@ resource "proxmox_vm_qemu" "vm" {
     ]
   }
 
-  ipconfig0    = "ip=192.168.1.2${count.index + 1}/24,gw=192.168.1.1"
-  # ipconfig0    = "dhcp"
-  nameserver   = "192.168.1.1"
+  # ipconfig0    = "ip=192.168.1.2${count.index + 1}/24,gw=192.168.1.1"
+  ipconfig0    = "dhcp"
+  # nameserver   = "172.20.100.1"
 
   ciuser       = var.ciuser
   cipassword   = var.cipassword
