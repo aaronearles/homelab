@@ -1,0 +1,43 @@
+---
+- name: Install Podman and Cockpit with Podman plugin on Ubuntu
+  hosts: your_ubuntu_host
+  become: yes
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+
+    - name: Install required packages for Podman
+      apt:
+        name: 
+          - apt-transport-https
+          - ca-certificates
+          - curl
+          - gnupg
+          - software-properties-common
+
+    - name: Add Podman repository
+      apt_repository:
+        repo: deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_$(lsb_release -rs)/ /
+        state: present
+        update_cache: yes
+
+    - name: Add GPG key for Podman repository
+      apt_key:
+        url: https://download.opensuse.org/repositories/devel:kubic:libcontainers:stable/xUbuntu_$(lsb_release -rs)/Release.key
+        state: present
+
+    - name: Install Podman
+      apt:
+        name: podman
+        state: present
+
+    - name: Install Cockpit
+      apt:
+        name: cockpit
+        state: present
+
+    - name: Install Cockpit Podman plugin
+      apt:
+        name: cockpit-podman
+        state: present
