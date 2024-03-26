@@ -7,7 +7,6 @@ variable "vm_count" {
 variable "start_id" {
     type = string
     description = "VM/CT ID Number to start from"
-    default = 110
 }
 
 variable "vm_hostname_pfx" {

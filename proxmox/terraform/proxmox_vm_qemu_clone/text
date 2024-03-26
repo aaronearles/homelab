@@ -17,7 +17,7 @@ sudo qm template 9003
 sudo pveum role add terraform_role -privs "Datastore.AllocateSpace Datastore.Audit Pool.Allocate Sys.Audit Sys.Console Sys.Modify VM.Allocate VM.Audit VM.Clone VM.Config.CDROM VM.Config.Cloudinit VM.Config.CPU VM.Config.Disk VM.Config.HWType VM.Config.Memory VM.Config.Network VM.Config.Options VM.Migrate VM.Monitor VM.PowerMgmt"
 
 # Create User
-sudo pveum user add terraform@pve --password Converg3!
+sudo pveum user add terraform@pve --password superSecr3t
 
 # Map Role to User
 sudo pveum aclmod / -user terraform@pve -role terraform_role
