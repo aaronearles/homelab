@@ -77,7 +77,7 @@ variable "vm_state" {
 }
 
 variable "agent" {
-  type        = int
+  type        = number
   description = "qemu-guest-agent enabled"
   default = "1"
 }
