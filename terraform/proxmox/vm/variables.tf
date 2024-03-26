@@ -38,3 +38,27 @@ variable "admin_password" {
   type        = string
   description = "Password for container"
 }
+
+
+variable "memory" {
+  type        = string
+  description = "Memory allocated in MB"
+}
+
+variable "sockets" {
+  type        = string
+  description = "CPU Socket count"
+  default = "1"
+}
+
+variable "cores" {
+  type        = string
+  description = "CPU Core count"
+  default = "1"
+}
+
+variable "vcpus" {
+  type        = string
+  description = "CPU vCPU count"
+  default = "0"
+}

@@ -1,18 +1,30 @@
 resource "proxmox_vm_qemu" "vm" {
-  count = var.instance_count
+  count         = var.instance_count
   # name        = "VM-name"
-  name    = "${var.hostname_pfx}-${count.index + var.id_start}" //count. ${count.index + 1} if starting at 1
-  # name     = "${var.hostname_pfx}-${format("%04d", each.value)}"
-  target_node = var.target_node
+  name          = "${var.hostname_pfx}-${count.index + var.id_start}" //count. ${count.index + 1} if starting at 1
+  # name        = "${var.hostname_pfx}-${format("%04d", each.value)}"
+  target_node   = var.target_node
   # iso         = "ISO file name"
 
   ### or for a Clone VM operation
-  clone = var.clone_source
+  clone         = var.clone_source
+  full_clone    = true
 
   ### or for a PXE boot VM operation
-  # pxe = true
-  # boot = "scsi0;net0"
-  # agent = 0
+  # pxe         = true
+  # boot        = "scsi0;net0"
+  # agent       = 0
+
+### SPECS ###
+memory          = var.memory
+sockets         = var.sockets
+cores           = var.cores
+vcpus           = var.vcpus
+
+ostype          = var.ostype
+
+
+
 }
 
 
