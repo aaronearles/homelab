@@ -1,4 +1,5 @@
 resource "proxmox_vm_qemu" "vm" {
+  count = var.instance_count
   # name        = "VM-name"
   name    = "${var.hostname_pfx}-${count.index + var.id_start}" //count. ${count.index + 1} if starting at 1
   # name     = "${var.hostname_pfx}-${format("%04d", each.value)}"
