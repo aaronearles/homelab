@@ -1,7 +1,7 @@
-- name: My first play
-  hosts: ansible_lab
+- name: Ping
+  hosts: linode
   tasks:
-   - name: Ping ansible_lab hosts
+   - name: Ping linode hosts
      ansible.builtin.ping:
 
    - name: Print message
