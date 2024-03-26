@@ -5,8 +5,8 @@
   tasks:
 
   - name: Ensure a job that runs at 19 minutes, every 2 hours exists. Creates an entry like "19 */2 * * * sleep ${RANDOM:0:2}m ; /usr/local/bin/ddns.sh"
-    ansible.builtin.cron:
     # https://docs.ansible.com/ansible/latest/collections/ansible/builtin/cron_module.html
+    ansible.builtin.cron:
       name: "cloudflare_ddns"
       minute: "19"
       hour: "*/2"
