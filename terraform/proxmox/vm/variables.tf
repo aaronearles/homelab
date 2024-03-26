@@ -79,5 +79,5 @@ variable "vm_state" {
 variable "agent" {
   type        = number
   description = "qemu-guest-agent enabled"
-  default = "0"
+  default = "0" //confirmed agent=1 results in stuck @ still creating... try adding agent to base image?
 }
