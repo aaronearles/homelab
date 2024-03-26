@@ -62,3 +62,9 @@ variable "vcpus" {
   description = "CPU vCPU count"
   default = "0"
 }
+
+variable "os_type" {
+  type        = string
+  description = "OS Type"
+  default = "ubuntu"
+}

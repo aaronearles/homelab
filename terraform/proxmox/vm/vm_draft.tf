@@ -21,7 +21,7 @@ sockets         = var.sockets
 cores           = var.cores
 vcpus           = var.vcpus
 
-ostype          = var.ostype
+os_type         = var.os_type
 
 
 
