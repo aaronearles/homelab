@@ -13,7 +13,27 @@ resource "proxmox_vm_qemu" "vm" {
   clone         = var.clone_source
   full_clone    = false
   scsihw        = "virtio-scsi-single"
-  boot          = "order=scsi0"
+
+  disks {
+          scsi {
+              scsi0 {
+                  disk {
+                      backup             = true
+                      cache              = "none"
+                      discard            = true
+                      emulatessd         = true
+                      iothread           = true
+                      mbps_r_burst       = 0.0
+                      mbps_r_concurrent  = 0.0
+                      mbps_wr_burst      = 0.0
+                      mbps_wr_concurrent = 0.0
+                      replicate          = true
+                      size               = 32
+                      storage            = "local-lvm"
+                  }
+              }
+          }
+      }
 
   ### or for a PXE boot VM operation
   # pxe         = true
