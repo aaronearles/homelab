@@ -1,6 +1,7 @@
 resource "proxmox_vm_qemu" "vm" {
   count         = var.instance_count
   # name        = "VM-name"
+  vmid         = count.index + var.id_start
   name          = "${var.hostname_pfx}-${count.index + var.id_start}" //count. ${count.index + 1} if starting at 1
   # name        = "${var.hostname_pfx}-${format("%04d", each.value)}"
   target_node   = var.target_node
