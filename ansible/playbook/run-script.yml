@@ -1,0 +1,8 @@
+# - hosts: "{{ hosts }}"
+- hosts: linode
+
+  become: yes
+  tasks:
+
+  - name: Execute the command in remote shell; stdout goes to the specified file on the remote
+    ansible.builtin.shell: /usr/local/bin/ddns.sh >> /var/log/ddns.log
