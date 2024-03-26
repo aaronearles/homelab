@@ -13,7 +13,7 @@ resource "proxmox_vm_qemu" "vm" {
   clone         = var.clone_source
   full_clone    = false
   scsihw        = "virtio-scsi-single"
-  boot          = "order=scsi0;ide2;net0"
+  # boot          = "order=scsi0;ide2;net0" //not working
 
   ### or for a PXE boot VM operation
   # pxe         = true
