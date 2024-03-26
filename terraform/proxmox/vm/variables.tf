@@ -25,7 +25,8 @@ variable "id_start" {
 
 variable "clone_source" {
   type = string
-  description = "VMID# of template to clone" #"801"
+  description = "VMID# of template to clone" #"801" //May be name?
+  default = "ubuntu-22.04-template"
 }
 
 variable "hostname_pfx" {
