@@ -1,7 +1,7 @@
 ---
 services:
   bind9:
-    container_name: dns-prod-1
+    container_name: dns1
     image: ubuntu/bind9:latest
     environment:
       - BIND9_USER=root

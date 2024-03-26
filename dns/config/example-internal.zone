@@ -1,6 +1,6 @@
-$ORIGIN earles.internal.
+$ORIGIN example.internal.
 $TTL 86400	; 1 day
-@				IN		SOA		ns1.earles.internal. admin.earles.internal. (
+@				IN		SOA		ns1.example.internal. admin.example.internal. (
 				20240318 ; serial
 				3600       ; refresh (1 hour)
 				3600       ; retry (1 hour)
@@ -8,8 +8,8 @@ $TTL 86400	; 1 day
 				3600       ; minimum (1 hour)
 				)
 
-				IN		NS	ns1.earles.internal.
-				IN		NS	ns2.earles.internal.
+				IN		NS	ns1.example.internal.
+				IN		NS	ns2.example.internal.
 
 ns1				IN		A	172.20.100.3
 ns2				IN		A	172.20.100.4

@@ -1,9 +1,9 @@
 - name: Ping
-  hosts: linode
+  hosts: myhosts
   tasks:
-   - name: Ping linode hosts
+   - name: Ping myhosts hosts
      ansible.builtin.ping:
 
    - name: Print message
      ansible.builtin.debug:
-      msg: Hello world, I am $HOSTNAME
+      msg: Hello world

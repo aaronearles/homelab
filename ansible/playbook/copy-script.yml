@@ -1,5 +1,5 @@
 # - hosts: "{{ hosts }}"
-- hosts: linode
+- hosts: myhosts
 
   become: yes
   tasks:
@@ -7,7 +7,7 @@
   - name: Copy file with owner and permissions
     ansible.builtin.copy:
       remote_src: false #false=controller side, true=managed/remote side
-      src: /home/aearles/homelab/scripts/cloudflare_ddns/watchman_ddns.sh
+      src: ./scripts/cloudflare_ddns/ddns.sh
       dest: /usr/local/bin/ddns.sh
       owner: root
       group: root

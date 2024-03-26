@@ -1,3 +1,4 @@
+# https://github.com/TwiN/gatus?tab=readme-ov-file#table-of-contents
 default-endpoint: &defaults
   interval: 60s
   client:
@@ -10,58 +11,18 @@ default-endpoint: &defaults
 
 endpoints:
 
-  - name: Thermostat
-    group: Home
-    url: icmp://thermostat.earles.internal
+  - name: ICMP Example # https://github.com/TwiN/gatus?tab=readme-ov-file#monitoring-an-endpoint-using-icmp
+    group: Main
+    url: icmp://test01.example.internal
     conditions:
       - "[CONNECTED] == true"
 
-  - name: DMZ_Reverse_Proxy
+  - name: HTTP Example
     group: Infrastructure
     <<: *defaults
-    url: "http://dmz.earles.internal:81/"
+    url: "http://test02.example.internal:81/"
 
   - name: Self
     group: Infrastructure
     <<: *defaults
-    url: http://docker.earles.internal:8080
-
-  - name: EarlesGoneWild
-    group: Public
-    <<: *defaults
-    url: https://earlesgonewild.blog
-
-  - name: "QBitTorrent (Download Client)"
-    group: Media-Services
-    <<: *defaults
-    url: http://vessel.earles.internal:8080
-
-  - name: "Prowlarr (Indexer)"
-    group: Media-Services
-    <<: *defaults
-    url: http://vessel.earles.internal:9696
-
-  - name: "Radarr (Movies)"
-    group: Media-Services
-    <<: *defaults
-    url: http://vessel.earles.internal:7878
-
-  - name: "Sonarr (TV)"
-    group: Media-Services
-    <<: *defaults
-    url: http://vessel.earles.internal:8989
-
-  - name: "Readarr (Books)"
-    group: Media-Services
-    <<: *defaults
-    url: http://vessel.earles.internal:8787
-
-  - name: "Jellyfin (Playback)"
-    group: Media-Services
-    <<: *defaults
-    url: http://docker.earles.internal:5055
-
-  - name: "Overseer (Discovery)"
-    group: Media-Services
-    <<: *defaults
-    url: http://docker.earles.internal:5055
+    url: http://docker.example.internal:8080
