@@ -18,7 +18,7 @@ resource "proxmox_vm_qemu" "vm" {
           scsi {
               scsi0 {
                   disk {
-                      backup             = true
+                      backup             = false
                       cache              = "none"
                       discard            = true
                       emulatessd         = true
