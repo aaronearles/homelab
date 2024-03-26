@@ -6,7 +6,8 @@
 
   - name: Copy file with owner and permissions
     ansible.builtin.copy:
-      src: ~/homelab/scripts/cloudflare_ddns/watchman_ddns.sh
+      remote_src: yes
+      src: /home/aearles/homelab/scripts/cloudflare_ddns/watchman_ddns.sh
       dest: /usr/local/bin/ddns.sh
       owner: root
       group: root
