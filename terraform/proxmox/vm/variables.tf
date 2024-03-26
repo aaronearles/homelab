@@ -69,3 +69,9 @@ variable "os_type" {
   description = "OS Type"
   default = "ubuntu"
 }
+
+variable "vm_state" {
+  type        = string
+  description = "Desired state of VM; running or stopped"
+  default = "running"
+}
