@@ -7,7 +7,7 @@ resource "proxmox_vm_qemu" "vm" {
   # iso         = "ISO file name"
 
   ### or for a Clone VM operation
-  clone = "801"
+  clone = var.clone_source
 
   ### or for a PXE boot VM operation
   # pxe = true
