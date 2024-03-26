@@ -75,3 +75,9 @@ variable "vm_state" {
   description = "Desired state of VM; running or stopped"
   default = "running"
 }
+
+variable "agent" {
+  type        = int
+  description = "qemu-guest-agent enabled"
+  default = "1"
+}

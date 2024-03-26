@@ -25,6 +25,7 @@ cores           = var.cores
 vcpus           = var.vcpus
 
 os_type         = var.os_type
+agent           = var.agent
 
 
 
