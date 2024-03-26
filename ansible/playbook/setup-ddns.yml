@@ -1,0 +1,30 @@
+# - hosts: "{{ hosts }}"
+- hosts: linode
+
+  become: yes
+  tasks:
+
+  - name: install prerequisite packages
+    apt:
+      name:
+        - curl
+        - jq
+        
+      update_cache: yes
+
+  - name: Copy file with owner and permissions
+    ansible.builtin.copy:
+      remote_src: false #false=controller side, true=managed/remote side
+      src: /home/aearles/homelab/scripts/cloudflare_ddns/watchman_ddns.sh
+      dest: /usr/local/bin/ddns.sh
+      owner: root
+      group: root
+      mode: '0755'
+
+  - name: Ensure a job that runs at 19 minutes, every 2 hours exists. Creates an entry like "19 */2 * * * sleep ${RANDOM:0:2}m ; /usr/local/bin/ddns.sh"
+    ansible.builtin.cron:
+    # https://docs.ansible.com/ansible/latest/collections/ansible/builtin/cron_module.html
+      name: "cloudflare_ddns"
+      minute: "19"
+      hour: "*/2"
+      job: "sleep ${RANDOM:0:2}m ; /usr/local/bin/ddns.sh"
