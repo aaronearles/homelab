@@ -8,5 +8,5 @@
     ansible.builtin.cron:
       name: "cloudflare_ddns"
       minute: "19"
-      hour: "/2"
+      hour: "*/2"
       job: "sleep ${RANDOM:0:2}m ; /usr/local/bin/ddns.sh"
