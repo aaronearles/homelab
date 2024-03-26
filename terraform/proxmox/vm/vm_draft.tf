@@ -3,7 +3,8 @@ resource "proxmox_vm_qemu" "vm" {
   # name        = "VM-name"
   vmid          = count.index + var.id_start
   name          = "${var.hostname_pfx}-${count.index + var.id_start}" //count. ${count.index + 1} if starting at 1
-  vm_state      = var.vm_state
+  vm_state      = var.vm_state //requires version = "3.0.1-rc1" otherwise use:
+  # oncreate      = true //start vm upon creation? deprecated in 3.0.1-rc1
   # name        = "${var.hostname_pfx}-${format("%04d", each.value)}"
   target_node   = var.target_node
   # iso         = "ISO file name"
