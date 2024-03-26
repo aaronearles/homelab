@@ -11,7 +11,7 @@ resource "proxmox_vm_qemu" "vm" {
 
   ### or for a Clone VM operation
   clone         = var.clone_source
-  full_clone    = true
+  full_clone    = false
 
   ### or for a PXE boot VM operation
   # pxe         = true
