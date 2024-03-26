@@ -25,13 +25,13 @@ variable "id_start" {
 
 variable "clone_source" {
   type = string
-  description = "VMID# of container template to clone" #"801"
+  description = "VMID# of template to clone" #"801"
 }
 
 variable "hostname_pfx" {
   type        = string
   description = "Hostname prefix of container(s)."
-  default     = "vm-"
+  default     = "vm"
 }
 
 variable "admin_password" {
