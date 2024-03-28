@@ -3,7 +3,7 @@
 # Requires Linode CLI: https://www.linode.com/docs/products/tools/cli/guides/install/
 # Requires Get-Random: https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/get-random
 # Requires a valid SSH key! You can generate a keypaid using 'ssh-keygen -m PEM -t rsa -b 2048'
-# Requires a valid stackscript_id, 1117817 is private. It's contents are available in ../stackscripts/proxy.sh
+# Requires a valid stackscript_id, 1117817 is private. It's contents are available in ../stackscripts/proxy.shj
 
 # function Get-RandomPassword {
 #     param (
