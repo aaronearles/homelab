@@ -8,8 +8,7 @@ resource "random_password" "root_pass" {
 # Create a Linode
 resource "linode_instance" "proxy" {
   label = "proxy"
-  # image               = "linode/ubuntu22.04"
-  image           = "linode/alpine3.17" //used for proxy
+  image               = var.image
   stackscript_id  = var.stackscript_id != "" ? var.stackscript_id : null
   region          = "us-west"
   type            = "g6-nanode-1"
