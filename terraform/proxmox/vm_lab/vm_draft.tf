@@ -50,8 +50,8 @@ resource "proxmox_vm_qemu" "vm" {
   agent   = var.agent
 
   network {
-    model    = e1000
-    bridge   = vmbr0
+    model    = "e1000"
+    bridge   = "vmbr0"
     tag      = var.vlan_tag
     firewall = false
   }
