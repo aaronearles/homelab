@@ -24,9 +24,9 @@ variable "id_start" {
 # }
 
 variable "clone_source" {
-  type = string
+  type        = string
   description = "VMID# of template to clone" #"801" //May be name?
-  default = "ubuntu-22.04-template"
+  default     = "ubuntu-22.04-template"
 }
 
 variable "hostname_pfx" {
@@ -53,41 +53,41 @@ variable "memory" {
 variable "sockets" {
   type        = string
   description = "CPU Socket count"
-  default = "1"
+  default     = "1"
 }
 
 variable "cores" {
   type        = string
   description = "CPU Core count"
-  default = "1"
+  default     = "1"
 }
 
 variable "vcpus" {
   type        = string
   description = "CPU vCPU count"
-  default = "0"
+  default     = "0"
 }
 
 variable "os_type" {
   type        = string
   description = "OS Type"
-  default = "ubuntu"
+  default     = "ubuntu"
 }
 
 variable "vm_state" {
   type        = string
   description = "Desired state of VM; running or stopped"
-  default = "running"
+  default     = "running"
 }
 
 variable "agent" {
   type        = number
   description = "qemu-guest-agent enabled"
-  default = "0" //confirmed agent=1 results in stuck @ still creating... try adding agent to base image?
+  default     = "0" //confirmed agent=1 results in stuck @ still creating... try adding agent to base image?
 }
 
 variable "vlan_tag" {
   type        = number
   description = "VLAN Tag to apply (-1 to disable tagging)"
-  default = "-1"
+  default     = "-1"
 }

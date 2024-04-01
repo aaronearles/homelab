@@ -22,7 +22,7 @@ variable "pm_api_token_secret" {
 terraform {
   required_providers {
     proxmox = {
-      source = "telmate/proxmox"
+      source  = "telmate/proxmox"
       version = "3.0.1-rc1"
     }
   }
