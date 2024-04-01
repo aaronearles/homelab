@@ -1,6 +1,6 @@
 ---
 - name: Install Podman and Cockpit with Podman plugin on Ubuntu
-  hosts: myhosts
+  hosts: all
   become: yes
   tasks:
     - name: Update apt cache

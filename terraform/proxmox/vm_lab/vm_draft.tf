@@ -60,10 +60,28 @@ resource "proxmox_vm_qemu" "vm" {
 
 ################### ANSIBLE ######################
 
+resource "time_sleep" "wait_30_seconds" {
+  depends_on = [proxmox_vm_qemu.vm]
+
+  create_duration = "30s"
+}
+
+# This resource will create (at least) 30 seconds after null_resource.previous
+resource "null_resource" "next" {
+  depends_on = [time_sleep.wait_30_seconds]
+}
+
+resource "ansible_group" "lab" {
+  name     = "lab"
+  #   variables = {
+  #     hello = "from group!"
+  #   }
+}
+
 resource "ansible_host" "labhost" {
   count = var.instance_count
-  name  = "${var.hostname_pfx}-${count.index + var.id_start}"
-  #   name   = proxmox_vm_qemu.vm.[this-isnt-right].name
+#   name  = "${var.hostname_pfx}-${count.index + var.id_start}" //adds hostname, need IP instead
+    name   = proxmox_vm_qemu.vm[count.index].ssh_host
   groups = ["lab"]
 
   #   variables = {
@@ -76,12 +94,5 @@ resource "ansible_host" "labhost" {
   # a list that looks like: [ element_1, element_2, ..., element_N ]
   # yaml_list = jsonencode(local.decoded_vault_yaml.a_list)
   #   }
-}
-
-resource "ansible_group" "lab" {
-  name     = "lab"
-  children = ansible_host.labhost
-  #   variables = {
-  #     hello = "from group!"
-  #   }
+  depends_on = [time_sleep.wait_30_seconds]
 }
