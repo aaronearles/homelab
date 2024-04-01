@@ -1,0 +1,8 @@
+lab:
+  hosts:
+    lab-1001:
+      ansible_port: 22
+      ansible_host: 172.20.110.31
+    lab-1002:
+      ansible_port: 22
+      ansible_host: 172.20.110.67
