@@ -25,10 +25,14 @@ terraform {
       source  = "telmate/proxmox"
       version = "3.0.1-rc1"
     }
+    ansible = {
+      source  = "ansible/ansible"
+      version = "~> 1.2.0"
+    }
   }
 
   backend "local" {
-    path = "/mnt/nfs/code/terraform_state/proxmox_400.tfstate"
+    path = "/mnt/nfs/code/terraform_state/proxmox_lab.tfstate"
   }
 }
 

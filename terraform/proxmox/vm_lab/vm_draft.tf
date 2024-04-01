@@ -58,37 +58,30 @@ resource "proxmox_vm_qemu" "vm" {
 
 }
 
+################### ANSIBLE ######################
 
-# ########## LXC CONFIGURATION ##########
+resource "ansible_host" "labhost" {
+  count = var.instance_count
+  name  = "${var.hostname_pfx}-${count.index + var.id_start}"
+  #   name   = proxmox_vm_qemu.vm.[this-isnt-right].name
+  groups = ["lab"]
 
-# resource "proxmox_lxc" "basic" {
-#   count = var.lxc_count
-#   # for_each            = { for i in var.lxc_list : "key_${i}" => i }
-#   target_node = var.target_node
-#   hostname    = "${var.lxc_hostname_pfx}-${count.index + var.id_start}" //count. ${count.index + 1} if starting at 1
-#   # hostname     = "${var.lxc_hostname_pfx}-${format("%04d", each.value)}"
-#   vmid         = count.index + var.id_start
-#   ostemplate   = var.ostemplate
-#   password     = var.lxc_password
-#   unprivileged = true
-#   start        = true
-#   cores        = var.lxc_cores
-#   memory       = var.lxc_memsize
+  #   variables = {
+  #     greetings   = "from host!"
+  #     some        = "variable"
+  #     yaml_hello  = local.decoded_vault_yaml.hello
+  #     yaml_number = local.decoded_vault_yaml.a_number
 
-#   # ssh_public_keys = <<-EOT
-#   #   ssh-rsa abcd1234
-#   # EOT
+  # using jsonencode() here is needed to stringify 
+  # a list that looks like: [ element_1, element_2, ..., element_N ]
+  # yaml_list = jsonencode(local.decoded_vault_yaml.a_list)
+  #   }
+}
 
-#   // Terraform will crash without rootfs defined
-#   rootfs {
-#     storage = "local-lvm"
-#     size    = var.lxc_disksize
-#   }
-
-#   network {
-#     name   = "eth0"
-#     bridge = "vmbr0"
-#     ip     = "dhcp"
-#   }
-
-# }
+resource "ansible_group" "lab" {
+  name     = "lab"
+  children = ansible_host.labhost
+  #   variables = {
+  #     hello = "from group!"
+  #   }
+}
