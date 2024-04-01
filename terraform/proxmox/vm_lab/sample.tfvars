@@ -19,3 +19,6 @@ vcpus   = "0"
 
 os_type  = "ubuntu"
 vm_state = "running"
+
+agent    = 1 //requires that source image have qemu-guest-agent installed or apply will hang waiting for instance
+vlan_tag = 110 //lab

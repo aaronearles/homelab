@@ -1,3 +1,0 @@
-Runner needed:
-node.js 20 installed
-unzip installed
