@@ -1,0 +1,48 @@
+ services:
+
+  open-webui:
+    image: ghcr.io/open-webui/open-webui:latest
+    container_name: open-webui
+    restart: unless-stopped
+    environment:
+      - PUID=${PUID:-1000}
+      - PGID=${PGID:-1000}
+      # - OLLAMA_BASE_URL=http://ollama:11434
+      - OPENAI_API_BASE_URL=https://openrouter.ai/api/v1
+      - OPENAI_API_KEY=openrouter_apikey
+      # - OPENAI_API_BASE_URL=https://api.openai.com/v1
+      # - OPENAI_API_KEY=openai_apikey
+      - ENABLE_RAG_WEB_SEARCH=False
+      # - RAG_WEB_SEARCH_ENGINE=searxng
+      # - RAG_WEB_SEARCH_RESULT_COUNT=3
+      # - RAG_WEB_SEARCH_CONCURRENT_REQUESTS=10
+      # - SEARXNG_QUERY_URL=http://searxng:8080/search?q=<query>
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+      - ./open-webui:/app/backend/data
+    # depends_on:
+    #   - ollama
+    # extra_hosts:
+    #   - host.docker.internal:host-gateway
+    ports:
+      - "8083:8080"
+
+  # searxng:
+  #   image: searxng/searxng:latest
+  #   container_name: searxng
+  # #   networks:
+  # #     - ai-stack
+  #   environment:
+  #     - PUID=${PUID:-1000}
+  #     - PGID=${PGID:-1000}
+  #   volumes:
+  #     - /etc/localtime:/etc/localtime:ro
+  #     - /etc/timezone:/etc/timezone:ro
+  #     - ./searxng:/etc/searxng
+  #   depends_on:
+  #     - ollama
+  #     - open-webui
+  #   restart: unless-stopped
+  #   ports:
+  #     - "8081:8080"
