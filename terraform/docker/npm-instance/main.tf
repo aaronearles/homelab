@@ -10,7 +10,7 @@ terraform {
 provider "docker" {
   host = "tcp://docker.internal:2375" #Needs to be enabled, see notes.txt
   # host = "unix:///var/run/docker.sock" #If running terraform locally.
-  # host     = "ssh://aearles@docker.internal" #SSH doesn't seem to be supported in Windows.
+  # host     = "ssh://admin@docker.internal" #SSH doesn't seem to be supported in Windows.
   # ssh_opts = ["-o", "StrictHostKeyChecking=no", "-o", "UserKnownHostsFile=/dev/null"]
 }
 
