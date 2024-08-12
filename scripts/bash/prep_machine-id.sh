@@ -1,4 +1,6 @@
 #!/bin/bash
-echo -n >/etc/machine-id
-rm /var/lib/dbus/machine-id
-ln -s /etc/machine-id /var/lib/dbus/machine-id
+# echo -n >/etc/machine-id
+# rm /var/lib/dbus/machine-id
+# ln -s /etc/machine-id /var/lib/dbus/machine-id
+
+### Use sysprep.sh instead ###
