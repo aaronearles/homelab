@@ -5,7 +5,7 @@ import subprocess
 app = FastAPI()
 
 @app.get("/date")
-async def get_hostname():
+async def get_date():
     try:
         output = subprocess.check_output(["date"], text=True)
         return {"date": output.strip()}
